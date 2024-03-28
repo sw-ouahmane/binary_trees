@@ -2,24 +2,6 @@
 
 
 /**
- * preorder_traversal - a function that handles the print of binary tree in
- * preorder way.
- *
- * @tree: binary_tree_t *
- * @func: void *
- * Return: void
- */
-void preorder_traversal(const binary_tree_t *tree, void (func)(int))
-{
-	if (tree)
-	{
-		func(tree->n);
-		preorder_traversal(tree->left, func);
-		preorder_traversal(tree->right, func);
-	}
-}
-
-/**
  * binary_tree_preorder - a function that goes through a binary tree using
  * pre-order traversal
  *
@@ -31,5 +13,8 @@ void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
 {
 	if (!tree && !func)
 		return;
-	preorder_traversal(tree, func);
+
+	func(tree->n);
+	binary_tree_preorder(tree->left, func);
+	binary_tree_preorder(tree->right, func);
 }
