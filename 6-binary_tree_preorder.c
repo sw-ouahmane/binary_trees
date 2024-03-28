@@ -11,11 +11,12 @@
  */
 void preorder_traversal(const binary_tree_t *tree, void (func)(int))
 {
-	func(tree->n);
-	if (tree->left)
+	if (tree)
+	{
+		func(tree->n);
 		preorder_traversal(tree->left, func);
-	if (tree->right)
 		preorder_traversal(tree->right, func);
+	}
 }
 
 /**
@@ -33,7 +34,5 @@ void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
 
 	while (tree->parent)
 		tree = tree->parent;
-	func(tree->n);
-	preorder_traversal(tree->left, func);
-	preorder_traversal(tree->right, func);
+	preorder_traversal(tree, func);
 }
