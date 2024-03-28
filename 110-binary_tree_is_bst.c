@@ -1,7 +1,5 @@
 #include "binary_trees.h"
 #include "limits.h"
-
-
 /**
  * find_bst - Checks if a binary tree is a valid binary search tree.
  *
@@ -17,7 +15,7 @@ int find_bst(const binary_tree_t *tree, int low, int high)
 		if (tree->n < low || tree->n > high)
 			return (0);
 		return (find_bst(tree->left, low, tree->n - 1) &&
-			find_bst(tree->right, tree->n + 1, high));
+				find_bst(tree->right, tree->n + 1, high));
 	}
 	return (1);
 }
